@@ -5,20 +5,11 @@ body {
 	font-size: 20px;
 }
 
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-}
-
 .container {
-	width: 650px;
-	margin: 0 auto;
-	padding: 80px 15px 40px;
+	margin: 20px auto;
 }
 
 .calc {
-	margin: 20px auto;
 	background-color: #1c93ee;
 	width: 385px;
 	padding: 30px;
@@ -42,10 +33,6 @@ header {
 	flex-direction: row;
 	flex-wrap: wrap;
 	align-items: flex-start;
-}
-.calc_button-row {
-	margin: 0 auto;
-	padding: 5px;
 }
 .btn {
 	width: 85px;
@@ -81,24 +68,25 @@ header {
 .btn-long {
 	width: 183px;
 }
-.btn-zero {
-	//
+.calc-buttons-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 288px;
 }
 
 .btn-equal {
-	height: 145px;
+	height: 140px;
 }
 input,
 button {
 	padding: 5px 15px;
-	margin: 10px;
 	border: 1px grey solid;
 	border-radius: 4px;
 }
 
 button {
-	margin-left: 0;
-	padding: 15px 24px;
+	margin: 10px 10px 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -129,18 +117,24 @@ button {
 	.btn-long {
 		width: 140px;
 	}
+	.calc-buttons-wrapper {
+		width: 224px;;
+	}
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 375px) {
 	.calc {
-		width: 280px;
+		width: 220px;
 	}
 	.calc-display-input {
-		width: 260px;
+		width: 200px;
 	}
 	.btn {
-		width: 60px;
+		width: 44px;
 	}
 	.btn-long {
-		width: 132px;
+		width: 102px;
+	}
+	.calc-buttons-wrapper {
+    width: 166px;
 	}
 }

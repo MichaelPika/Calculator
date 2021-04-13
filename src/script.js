@@ -21,34 +21,34 @@ const numberPress = (numberAsString) => {
 	}
 };
 
-const operation = (operationValue) => {
-	localOperationMemory = display.value;
+const selectAnOperation = (operationValue) => {
+	localOperationMemory = parseFloat(display.value);
 	if (memoryNewNumber && memoryPendingOperation !== "=") {
 		display.value = memoryCurrentNumber;
 	} else {
 		memoryNewNumber = true;
 		switch (memoryPendingOperation) {
 			case "+":
-				memoryCurrentNumber += parseFloat(localOperationMemory);
+				memoryCurrentNumber += localOperationMemory;
 				break;
 			case "-":
-				memoryCurrentNumber -= parseFloat(localOperationMemory);
+				memoryCurrentNumber -= localOperationMemory;
 				break;
 			case "/":
-				memoryCurrentNumber /= parseFloat(localOperationMemory);
+				memoryCurrentNumber /= localOperationMemory;
 				break;
 			case "x":
-				memoryCurrentNumber *= parseFloat(localOperationMemory);
+				memoryCurrentNumber *= localOperationMemory;
 				break;
 			default:
-				memoryCurrentNumber = parseFloat(localOperationMemory);
+				memoryCurrentNumber = localOperationMemory;
 		}
 		display.value = memoryCurrentNumber;
 		memoryPendingOperation = operationValue.trim();
 	}
 };
 
-const clear = (id) => {
+const clearDisplay = (id) => {
 	if (id.trim() === "ce") {
 		display.value = "0";
 		memoryNewNumber = true;
@@ -75,8 +75,9 @@ const setDecimalNumber = () => {
 };
 
 const calculateMain = () => {
-	for (let i = 0; i < numbers.length; i++) {
-		let number = numbers[i];
+	decimalBtn.addEventListener("click", setDecimalNumber);
+
+	for (let number of numbers) {
 		number.addEventListener("click", function (e) {
 			numberPress(e.target.textContent);
 		});
@@ -85,20 +86,15 @@ const calculateMain = () => {
 	for (let i = 0; i < operations.length; i++) {
 		let operationBtn = operations[i];
 		operationBtn.addEventListener("click", function (e) {
-			operation(e.target.textContent);
+			selectAnOperation(e.target.textContent);
 		});
 	}
 	for (let i = 0; i < clearBtns.length; i++) {
 		let clearBtn = clearBtns[i];
 		clearBtn.addEventListener("click", function (e) {
-			clear(e.target.textContent);
+			clearDisplay(e.target.textContent);
 		});
 	}
 };
 
-const eventHanding = () => {
-	decimalBtn.addEventListener("click", setDecimalNumber);
-};
-
-eventHanding();
 calculateMain();

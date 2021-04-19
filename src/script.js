@@ -83,14 +83,12 @@ const calculateMain = () => {
 		});
 	}
 
-	for (let i = 0; i < operations.length; i++) {
-		let operationBtn = operations[i];
+	for (let operationBtn of operations) {
 		operationBtn.addEventListener("click", function (e) {
 			selectAnOperation(e.target.textContent);
 		});
 	}
-	for (let i = 0; i < clearBtns.length; i++) {
-		let clearBtn = clearBtns[i];
+	for (let clearBtn of clearBtns) {
 		clearBtn.addEventListener("click", function (e) {
 			clearDisplay(e.target.textContent);
 		});

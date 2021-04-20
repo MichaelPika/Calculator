@@ -1,25 +1,25 @@
 body {
-	widows: 100%;
 	height: 100%;
 	background-color: #eee;
 	font-size: 20px;
 }
-
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
+:root {
+	--color-main: #235ad1;
+	--color-display: #1d1d1d;
+	--color-buttons: #f4f4f4;
+	--color-button-hover: #d83e33;
+	--color-button-text: #666666;
+	--color-text: #fff;
+	--color-button-operation-hover: #ff6a00;
+	--color-button-number-hover: #008000;
+	--color-border-button: #808080;
 }
-
 .container {
-	width: 650px;
-	margin: 0 auto;
-	padding: 80px 15px 40px;
+	margin: 20px auto;
 }
 
 .calc {
-	margin: 20px auto;
-	background-color: #1c93ee;
+	background-color: var(--color-main);
 	width: 385px;
 	padding: 30px;
 	border-radius: 6px;
@@ -30,8 +30,8 @@ header {
 	height: 60px;
 	margin: 20px 0;
 	border-radius: 6px;
-	background-color: #1d1d1d;
-	color: #fff;
+	background-color: var(--color-display);
+	color: var(--color-text);
 	text-align: right;
 	font-size: 35px;
 	padding: 10px;
@@ -43,16 +43,12 @@ header {
 	flex-wrap: wrap;
 	align-items: flex-start;
 }
-.calc_button-row {
-	margin: 0 auto;
-	padding: 5px;
-}
 .btn {
 	width: 85px;
 	height: 60px;
-	background-color: #f4f4f4;
+	background-color: var(--color-buttons);
 	font-size: 27px;
-	color: #666666;
+	color: var(--color-button-text);
 	text-transform: uppercase;
 	border-radius: 6px;
 	padding: 0;
@@ -60,45 +56,46 @@ header {
 	transition: 0.1s all;
 }
 .btn-hover-red:hover {
-	background-color: #d83e33;
-	color: #f2f2f2;
+	background-color: var(--color-button-hover);
+	color: var(--color-text);
 }
 
 .btn-hover-orange:hover {
-	background-color: #ff6a00;
-	color: #f2f2f2;
+	background-color: var(--color-button-operation-hover);
+	color: var(--color-text);
 }
 
 .btn-hover-green:hover {
-	background-color: green;
-	color: #f2f2f2;
+	background-color: var(--color-button-number-hover);
+	color: var(--color-text);
 }
 
 .btn:active {
 	transform: translateY(-1px);
-	box-shadow: 0px 1px #ccc;
+	box-shadow: 0 1px #ccc;
 }
 .btn-long {
 	width: 183px;
 }
-.btn-zero {
-	//
+.calc-buttons-wrapper {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 288px;
 }
 
 .btn-equal {
-	height: 145px;
+	height: 140px;
 }
 input,
 button {
 	padding: 5px 15px;
-	margin: 10px;
-	border: 1px grey solid;
+	border: 1px solid var(--color-border-button);
 	border-radius: 4px;
 }
 
 button {
-	margin-left: 0;
-	padding: 15px 24px;
+	margin: 10px 10px 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -129,18 +126,24 @@ button {
 	.btn-long {
 		width: 140px;
 	}
+	.calc-buttons-wrapper {
+		width: 224px;
+	}
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 375px) {
 	.calc {
-		width: 280px;
+		width: 220px;
 	}
 	.calc-display-input {
-		width: 260px;
+		width: 200px;
 	}
 	.btn {
-		width: 60px;
+		width: 44px;
 	}
 	.btn-long {
-		width: 132px;
+		width: 102px;
+	}
+	.calc-buttons-wrapper {
+		width: 166px;
 	}
 }
